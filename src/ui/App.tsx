@@ -1,38 +1,47 @@
-import { useState } from 'react';
-import reactLogo from '../react.svg';
-import viteLogo from '/vite.svg';
-//import 'src/assets/css/App.scss'
-//import '../css/App.scss';
+import React from 'react';
+
 import '@css/App.scss';
 
-function App() {
-  const [count, setCount] = useState(0)
-  console.log('@css');
+import TaskForm from '@ui/components/TaskForm';
+import TaskList from '@ui/components/TaskList';
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is x + {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+import { Task } from '@backend/task';
+
+interface IProps {
+  //taskList: Task[];
+  //addTask: Task;
+}
+
+
+
+
+
+class App extends React.Component<IProps, {taskList: Task[]}> {
+  constructor(props: IProps) {
+    super(props);
+
+    this.state = {
+      taskList: [],
+    };
+
+    this.addTask = this.addTask.bind(this);
+  }
+  
+  addTask(taskToAdd: Task) {
+    this.setState({
+      taskList: [...this.state.taskList, taskToAdd],
+    });
+  }
+  
+
+  render() {
+    return (
+      <>
+        <TaskForm addTask={this.addTask}/>
+        <TaskList taskList={this.state.taskList}/>      
+      </>
+    )
+  }
 }
 
 export default App
