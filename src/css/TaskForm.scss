@@ -1,21 +1,50 @@
 .Taskform {
-    
-
+    background-color: lavender;
+    width: 600px;
 
     .Taskform_container {
-
+        font-size: 20px;
+        margin: 10px;
+        line-height: 2.3rem;
         .Taskform_container_title {
-
+            text-align: center;
+            font-size: 25px;
+            margin: 0px;
+            padding: 0px;
             // taskform title (this is not the task title!)
         }
 
         .Taskform_container_task_title {
-            
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            margin: 3px;
+            font-size: 26px;
+
+            #Title_input {
+                height: 28px;             
+                font-size: 19px;
+                width: 70%;
+                margin-left: 20px;
+            }
             // the title field for the task form
         }
 
         .Taskform_container_task_dates {
+            display: flex;
+            align-items: center;
+            font-size: 26px;
 
+            #Start_of_task {
+                margin-right: 55px;
+            }
+
+            #Start_of_task,
+            #Deadline_of_task {              
+                font-size: 19px;
+                height: 28px;
+                margin-left: 5px;
+            }
             // the date field and the deadline date field
         }
 

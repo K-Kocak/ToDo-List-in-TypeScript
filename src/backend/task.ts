@@ -1,4 +1,5 @@
 export type TaskType = "Leisure" | "Study" | "Work" | "Exercise";
+
 export interface Task {
     title: string;
     description: string;
@@ -7,4 +8,6 @@ export interface Task {
     isHighPriority: boolean;
     taskType: TaskType;
     isCompleted: boolean;
+    id: string;
 }
+

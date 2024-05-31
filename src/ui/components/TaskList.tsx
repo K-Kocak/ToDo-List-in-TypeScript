@@ -2,18 +2,23 @@ import React from 'react';
 
 import { Task } from '@backend/task';
 
-import { TaskDiv } from '@ui/components/TaskDiv';
+import TaskDiv from '@ui/components/TaskDiv';
 
 interface IProps {
     taskList: Task[];
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    editTask: Function;
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    deleteTask: Function;
 }
 
-//key={index} title={Task.title} description={Task.description} date={Task.date} deadline={Task.deadline} isHighPriority={Task.isHighPriority} taskType={Task.taskType} isCompleted={Task.isCompleted}
 
 class TaskList extends React.Component<IProps, never> {
     constructor(props: IProps) {
         super(props);
     }
+
+    
 
     render() {
         
@@ -21,7 +26,7 @@ class TaskList extends React.Component<IProps, never> {
         
         const temp: React.JSX.Element[] = [];
         taskToDisplay.map((Task: Task, index: number) => {
-            temp.push(<TaskDiv key={index} task={Task}/>)
+            temp.push(<TaskDiv key={index} task={Task} deleteTask={this.props.deleteTask} editTask={this.props.editTask}/>)
         });
         console.log(temp);
 

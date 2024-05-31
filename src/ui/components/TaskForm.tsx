@@ -1,4 +1,5 @@
 import React, { BaseSyntheticEvent } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { Task, TaskType } from '@backend/task';
 
@@ -29,6 +30,7 @@ class TaskForm extends React.Component<IProps, never> {
             isCompleted: false,
             date: event.target[1].value,
             deadline: event.target[2].value,
+            id: uuid(),
         };
         this.props.addTask(taskToAdd);
     }
@@ -49,12 +51,12 @@ class TaskForm extends React.Component<IProps, never> {
                     </div>
                     <form onSubmit={this.submitTask}>
                         <div className="Taskform_container_task_title">
-                            <label htmlFor="Title_input">Title: </label>
+                            <label htmlFor="Title_input">Title : </label>
                             <input type="text" id="Title_input" required placeholder='Task Title...' defaultValue="Development_Value"></input>                     
                         </div>
                         <div className="Taskform_container_task_dates">
-                            <label htmlFor="Start_of_task">Date: </label><input type="date" id="Start_of_task"></input>
-                            <label htmlFor="Deadline_of_task">Deadline: </label><input type="date" id="Deadline_of_task"></input>
+                            <label htmlFor="Start_of_task">Date : </label><input type="date" id="Start_of_task"></input>
+                            <label htmlFor="Deadline_of_task">Deadline : </label><input type="date" id="Deadline_of_task"></input>
                         </div>
                         <div className="Taskform_container_task_priority_and_task_type">
                             <label htmlFor="Ishighpriority">High Priority? </label>
