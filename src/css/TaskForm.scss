@@ -1,24 +1,36 @@
 .Taskform {
     background-color: lavender;
     width: 600px;
+    padding: 5px;
+    margin: 10px auto;
+    height: 350px;
 
     .Taskform_container {
         font-size: 20px;
-        margin: 10px;
-        line-height: 2.3rem;
+        
+        
         .Taskform_container_title {
             text-align: center;
             font-size: 25px;
             margin: 0px;
+            
             padding: 0px;
+
+            h3 {
+                margin: 15px;
+            }
             // taskform title (this is not the task title!)
+        }
+
+        form {
+            padding: 5px;
         }
 
         .Taskform_container_task_title {
             display: flex;
-            align-items: center;
+            
             justify-content: left;
-            margin: 3px;
+            
             font-size: 26px;
 
             #Title_input {
@@ -34,6 +46,7 @@
             display: flex;
             align-items: center;
             font-size: 26px;
+            margin-top: 5px;
 
             #Start_of_task {
                 margin-right: 55px;
@@ -48,18 +61,41 @@
             // the date field and the deadline date field
         }
 
-        .Taskform_container_task_priority_and_task_types {
+        .Taskform_container_task_priority_and_task_type {
+            display: flex;
+            align-items: center;
+            font-size: 26px;
+            margin-top: 5px;
+            justify-content: center;
+            margin-top: 5px;
+            
+            #Ishighpriority {
+                margin-right: 55px;
+            }
 
+            #Task_type {
+                font-size: 19px;
+                height: 30px;
+                margin-left: 5px;
+            }
             // ishighpriority and type of task
         }
 
         .Taskform_container_task_description {
-
+            font-size: 26px;
+            margin: 3px;
+            #task_details {
+                width: 97%;
+                height: 70px;
+                padding: 9px;
+                resize: none;
+            }
             // description of the task
         }
 
         .Taskform_container_submit_button {
-
+            display: flex;
+            justify-content: center;
             // ok bro
         }
     }

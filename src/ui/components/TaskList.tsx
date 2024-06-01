@@ -4,6 +4,8 @@ import { Task } from '@backend/task';
 
 import TaskDiv from '@ui/components/TaskDiv';
 
+import '@css/TaskList.scss';
+
 interface IProps {
     taskList: Task[];
     // eslint-disable-next-line @typescript-eslint/ban-types
@@ -31,7 +33,7 @@ class TaskList extends React.Component<IProps, never> {
         console.log(temp);
 
         return(
-            <div>
+            <div id="Tasklist_container">
                 {temp}
             </div>
         )

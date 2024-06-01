@@ -23,6 +23,7 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
         this.activateDiv = this.activateDiv.bind(this);
         this.deactivateDiv = this.deactivateDiv.bind(this);
         this.deleteDiv = this.deleteDiv.bind(this);
+        this.completeTask = this.completeTask.bind(this);
     }
 
     activateDiv() {
@@ -54,11 +55,21 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
         })
         this.props.deleteTask(this.props.task);
     }
+
+    completeTask() {
+        const taskToEdit = this.props.task;
+        taskToEdit.isCompleted = !taskToEdit.isCompleted;
+        this.props.editTask(taskToEdit);      
+    }
+
     //onClick={this.deleteDiv} call this
     //to delete the div (need it somewhere atleast.)
     //onClick={this.deadactivateDiv} call this to
     // return a div to normal AND update the taskList state in
     // App
+    //<button onClick={this.deleteDiv}></button>
+    //<button onClick={this.activateDiv}></button>
+    //<button onClick={this.deactivateDiv}></button>
     render() {  
         
         const divToDisplay = this.state.isActive ?
@@ -67,10 +78,37 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
         
          : 
         
-         <div><button onClick={this.deleteDiv}></button>Edit<button onClick={this.activateDiv}></button>{this.props.task.id}</div>;
+         <div id="Taskdiv_container_notactive">
+            <div className="Taskdiv_title_and_buttons">
+                <div className="Taskdiv_title">
+                    <span>{this.props.task.title}</span>
+                </div>
+                <div className="Taskdiv_buttons">
+                    <button onClick={this.completeTask}><i className="fa fa-check"></i></button>
+                    <button onClick={this.activateDiv}><i className="fa fa-edit"></i></button>
+                    
+                    <button onClick={this.deleteDiv}>
+                        <i className="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <p>{this.props.task.description}</p>
+            </div>
+            <div>
+                <div>
+                    <span>{this.props.task.taskType}</span>
+                    <span>{this.props.task.isHighPriority ? "High Priority!" : "Low Priority"}</span>
+                </div>
+                <div>
+                    <span>{this.props.task.date?.toString()}</span>
+                    <span>{this.props.task.deadline?.toString()}</span>
+                </div>
+            </div>
+         </div>;
         
         return(
-            <div>
+            <div id="Taskdiv_container">
                 {divToDisplay}            
             </div>
         )
