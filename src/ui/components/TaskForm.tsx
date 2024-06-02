@@ -31,6 +31,7 @@ class TaskForm extends React.Component<IProps, never> {
             date: event.target[1].value,
             deadline: event.target[2].value,
             id: uuid(),
+            isActive: false
         };
         this.props.addTask(taskToAdd);
     }

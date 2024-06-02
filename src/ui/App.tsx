@@ -4,8 +4,9 @@ import '@css/App.scss';
 
 import TaskForm from '@ui/components/TaskForm';
 import TaskList from '@ui/components/TaskList';
+import Filter from '@ui/components/Filter';
 
-import { Task } from '@backend/task';
+import { Task, TaskType } from '@backend/task';
 
 interface IProps {}
 
@@ -20,6 +21,7 @@ class App extends React.Component<IProps, {taskList: Task[]}> {
     this.addTask = this.addTask.bind(this);
     this.editTask = this.editTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);    
+    this.sortByString = this.sortByString.bind(this);
   }
   
   addTask(taskToAdd: Task): void {
@@ -46,24 +48,39 @@ class App extends React.Component<IProps, {taskList: Task[]}> {
   
   deleteTask(taskToDelete: Task) {
     const index = this.state.taskList.indexOf(taskToDelete);
-    console.log(taskToDelete);
-    console.log(this.state.taskList);
-    console.log(index);
+    const temp: Task[] = [];
+    const resetActive = this.state.taskList;
+    resetActive.map((Task: Task) => {
+      if(Task.isActive) {
+        Task.isActive = false;
+        temp.push(Task);
+      } else {
+        temp.push(Task);
+      }     
+    })
     if(index > -1) {
-      const newTaskList = this.state.taskList;
-      newTaskList.splice(index, 1);
-      console.log(newTaskList);
+      temp.splice(index, 1);
       this.setState({
-        taskList: [...newTaskList]
+        taskList: [...temp]
       });
+    }  
+  }
+
+  sortDivs(parameterToSort: string | Date | boolean | TaskType) {
+    if(parameterToSort === "title") {
+      this.sortByString(parameterToSort);
     }
-    
+  }
+
+  sortByString(stringToSortBy: string) {
+
   }
 
   render() {
     return (
       <div className="Taskapp_container">
         <TaskForm addTask={this.addTask}/>
+        <Filter sortParameter={this.sortDivs}/>
         <TaskList taskList={this.state.taskList} editTask={this.editTask} deleteTask={this.deleteTask}/>      
       </div>
     )

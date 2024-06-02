@@ -18,17 +18,25 @@ interface IProps {
 class TaskList extends React.Component<IProps, never> {
     constructor(props: IProps) {
         super(props);
+
+        this.deleteTask = this.deleteTask.bind(this);    
     }
-
+    deleteTask(taskToDelete: Task) {
+        this.props.deleteTask(taskToDelete);
+    }
     
-
     render() {
-        
         const taskToDisplay = this.props.taskList;
+        const taskDivList: Task[] = [];
+
+        taskToDisplay.map((Task: Task) => {
+            taskDivList.push(Task);
+        });
         
+        console.log(taskDivList);
         const temp: React.JSX.Element[] = [];
-        taskToDisplay.map((Task: Task, index: number) => {
-            temp.push(<TaskDiv key={index} task={Task} deleteTask={this.props.deleteTask} editTask={this.props.editTask}/>)
+        taskDivList.map((Task: Task, index: number) => {
+            temp.push(<TaskDiv key={index} task={Task} deleteTask={this.deleteTask} editTask={this.props.editTask}/>)
         });
         console.log(temp);
 

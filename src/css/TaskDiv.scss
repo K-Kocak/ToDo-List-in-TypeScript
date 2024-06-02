@@ -1,0 +1,165 @@
+#Taskdiv_container {
+    // base present in both containers
+    width: 99%;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: left;
+    background-color: #093F46;
+
+    #Taskdiv_container_active {
+        width: 100%;
+        margin: 6px;
+        padding: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(90deg, #D09016, #966810);
+
+
+        .Taskdiv_title_and_buttons {
+            padding: 5px 3px 3px 5px;
+            margin-bottom: 3px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: 2px solid black;
+
+            .Taskdiv_title {
+                
+                input {
+                    font-size: 30px;
+                    padding-left: 3px;
+                    width: 100%;
+                }
+            }
+
+            .Taskdiv_buttons {
+                display: flex;
+                align-items: center;
+                .Taskdiv_button {
+                    font-size: 20px;
+                    // style the buttons
+                }
+
+               
+            }
+        }
+
+        .Taskdiv_description {
+            
+            border: 2px solid black;
+            padding: 5px;
+            
+            textarea {
+                width: 99%;
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+
+        .Taskdiv_types_priority_dates {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 5px;
+            border: 2px solid black;
+            
+            .Taskdiv_types_priority {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                padding: 0px;
+                
+            }
+
+            .Taskdiv_dates {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                margin: 7px;
+                
+            }
+        }
+    }
+    //----------------------------------------
+    #Taskdiv_container_notactive {
+        width: 100%;
+        margin: 5px;
+        padding: 3px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid black;
+        background: linear-gradient(90deg, #4B80B6, #3A6490);
+        
+
+        .Taskdiv_title_and_buttons {
+            padding: 5px 3px 3px 5px;
+            margin-bottom: 3px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: 2px solid black;
+
+            .Taskdiv_title {
+                
+                span {
+                    font-size: 30px;
+                    padding-left: 3px;
+                }
+            }
+
+            .Taskdiv_buttons {
+                display: flex;
+                align-items: center;
+                .Taskdiv_button {
+                    font-size: 20px;
+                    // style the buttons
+                }
+
+                
+            }
+        }
+
+        .Taskdiv_description {
+            
+            border: 2px solid black;
+            padding: 5px;
+            
+            p {
+                padding: 0px 5px;
+                font-size: 18px;
+                word-break: break-word;
+                
+            }
+        }
+
+        .Taskdiv_types_priority_dates {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 5px;
+            border: 2px solid black;
+            
+            .Taskdiv_types_priority {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                padding: 0px;
+                
+            }
+
+            .Taskdiv_dates {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                margin: 7px;
+                
+            }
+        }
+    }
+}
