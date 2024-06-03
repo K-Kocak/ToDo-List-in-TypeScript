@@ -29,7 +29,7 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
     }
 
     deactivateDiv(event: BaseSyntheticEvent) {
-        console.log(event);
+        
         const taskToEdit: Task = {
             title: event.target[0].value,
             description: event.target[4].value,
@@ -79,9 +79,9 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
                         <input type="string" defaultValue={this.props.task.title}></input>
                     </div>
                     <div className="Taskdiv_buttons">
-                        <button type="button" className="Taskdiv_button" onClick={this.completeTask}><i className="fa fa-check"></i></button>
-                        <button type="submit" className="Taskdiv_button"><i className="fa fa-edit"></i></button>
-                        <button className="Taskdiv_button" onClick={this.deleteDiv}>
+                        <button type="button" className="Taskdiv_button Complete" onClick={this.completeTask}><i className="fa fa-check"></i></button>
+                        <button type="submit" className="Taskdiv_button Edit"><i className="fa fa-edit"></i></button>
+                        <button className="Taskdiv_button Delete" onClick={this.deleteDiv}>
                         <i className="fa fa-trash" aria-hidden="true"></i>
                         </button>
                         
@@ -116,10 +116,10 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
                     <span>{this.props.task.title}</span>
                 </div>
                 <div className="Taskdiv_buttons">
-                    <button className="Taskdiv_button" onClick={this.completeTask}><i className="fa fa-check"></i></button>
-                    <button className="Taskdiv_button" onClick={this.activateDiv}><i className="fa fa-edit"></i></button>
+                    <button className="Taskdiv_button Complete" onClick={this.completeTask}><i className="fa fa-check"></i></button>
+                    <button className="Taskdiv_button Edit" onClick={this.activateDiv}><i className="fa fa-edit"></i></button>
                     
-                    <button className="Taskdiv_button" onClick={this.deleteDiv}>
+                    <button className="Taskdiv_button Delete" onClick={this.deleteDiv}>
                         <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -129,12 +129,12 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
             </div>
             <div className="Taskdiv_types_priority_dates">
                 <div className="Taskdiv_types_priority">
-                <span>{this.props.task.isHighPriority ? "High Priority!" : "Low Priority"}</span>
-                    <span>{this.props.task.taskType}</span>
+                <span>Priority : {this.props.task.isHighPriority ? "High Priority!" : "Low Priority"}</span>
+                    <span>Task Type : {this.props.task.taskType}</span>
                 </div>
                 <div className="Taskdiv_dates">
-                    <span>{this.props.task.date?.toString()}</span>
-                    <span>{this.props.task.deadline?.toString()}</span>
+                    <span>Date : {this.props.task.date?.toString()}</span>
+                    <span>Deadline : {this.props.task.deadline?.toString()}</span>
                 </div>
             </div>
         </div>;

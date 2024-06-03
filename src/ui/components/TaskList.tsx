@@ -33,12 +33,12 @@ class TaskList extends React.Component<IProps, never> {
             taskDivList.push(Task);
         });
         
-        console.log(taskDivList);
+     
         const temp: React.JSX.Element[] = [];
         taskDivList.map((Task: Task, index: number) => {
             temp.push(<TaskDiv key={index} task={Task} deleteTask={this.deleteTask} editTask={this.props.editTask}/>)
         });
-        console.log(temp);
+      
 
         return(
             <div id="Tasklist_container">

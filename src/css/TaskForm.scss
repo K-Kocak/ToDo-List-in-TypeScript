@@ -1,9 +1,10 @@
 .Taskform {
-    background-color: lavender;
+    background: linear-gradient(180deg, #4C524D, #323532, #4C524D);
     width: 600px;
     padding: 5px;
     margin: 10px auto;
-    height: 350px;
+    height: 360px;
+    font-weight: 600;
 
     .Taskform_container {
         font-size: 20px;
@@ -12,14 +13,14 @@
         .Taskform_container_title {
             text-align: center;
             font-size: 25px;
-            margin: 0px;
-            
+            margin: 0px;         
             padding: 0px;
 
             h3 {
                 margin: 15px;
+                font-size: 30px;
             }
-            // taskform title (this is not the task title!)
+            
         }
 
         form {
@@ -27,19 +28,17 @@
         }
 
         .Taskform_container_task_title {
-            display: flex;
-            
+            display: flex;          
             justify-content: left;
-            
             font-size: 26px;
 
             #Title_input {
                 height: 28px;             
                 font-size: 19px;
-                width: 70%;
-                margin-left: 20px;
+                width: 487px;
+                margin-left: 11px;
             }
-            // the title field for the task form
+            
         }
 
         .Taskform_container_task_dates {
@@ -58,7 +57,7 @@
                 height: 28px;
                 margin-left: 5px;
             }
-            // the date field and the deadline date field
+            
         }
 
         .Taskform_container_task_priority_and_task_type {
@@ -67,10 +66,11 @@
             font-size: 26px;
             margin-top: 5px;
             justify-content: center;
-            margin-top: 5px;
+            margin-right: 35px;
             
             #Ishighpriority {
                 margin-right: 55px;
+                margin-left: 10px;
             }
 
             #Task_type {
@@ -78,25 +78,39 @@
                 height: 30px;
                 margin-left: 5px;
             }
-            // ishighpriority and type of task
+            
         }
 
         .Taskform_container_task_description {
             font-size: 26px;
             margin: 3px;
+            
             #task_details {
                 width: 97%;
                 height: 70px;
                 padding: 9px;
                 resize: none;
+                margin-top: 2px;
             }
-            // description of the task
+            
         }
 
         .Taskform_container_submit_button {
             display: flex;
             justify-content: center;
-            // ok bro
+            width: 100%;
+            
+            .Taskform_container_submit_button_thing {
+                width: 150px;
+                height: 25px;
+                border: 1px solid silver;
+                background: linear-gradient(200deg, silver, black 20%);
+                color: white;
+
+                &:hover {
+                    background: linear-gradient(200deg, silver, black 70%);
+                }
+            }
         }
     }
 }
