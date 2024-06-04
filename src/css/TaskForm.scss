@@ -5,6 +5,7 @@
     margin: 10px auto;
     height: 360px;
     font-weight: 600;
+    border: 1px solid white;
 
     .Taskform_container {
         font-size: 20px;
@@ -105,11 +106,22 @@
                 height: 25px;
                 border: 1px solid silver;
                 background: linear-gradient(200deg, silver, black 20%);
+                border-color: silver;
                 color: white;
+                margin: 0px 20px;
 
+                
                 &:hover {
                     background: linear-gradient(200deg, silver, black 70%);
                 }
+            }
+
+            .Taskform_container_submit_button_thing.save_button {
+                border-color: #DAECA8;
+            }
+
+            .Taskform_container_submit_button_thing.load_button {
+                border-color: #7DE98D;
             }
         }
     }

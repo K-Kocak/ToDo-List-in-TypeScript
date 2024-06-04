@@ -87,9 +87,11 @@ class TaskForm extends React.Component<IProps, never> {
                             <textarea required id="task_details" name="task_details" placeholder='Details About The Task...' defaultValue="Development_Value"></textarea>
                         </div>
                         <div className="Taskform_container_submit_button">
-                            <button className="Taskform_container_submit_button_thing" onClick={this.saveTask}>Save Task List</button>
-                            <button className="Taskform_container_submit_button_thing" onClick={this.loadTask}>Load Task List</button>
+                            <button className="Taskform_container_submit_button_thing save_button" type="button" onClick={this.saveTask}>Save Task List</button>
+                            
                             <button className="Taskform_container_submit_button_thing" type="submit" value="submit">Add Task to List</button>
+
+                            <button className="Taskform_container_submit_button_thing load_button" type="button" onClick={this.loadTask}>Load Task List</button>
                             
                         </div>
                     </form>

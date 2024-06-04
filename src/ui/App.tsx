@@ -217,12 +217,12 @@ class App extends React.Component<IProps, IState> {
       if(Task.date) {
         dataToSave += Task.date + ","
       } else {
-        dataToSave += "NoDate" + ","
+        dataToSave += "No Date" + ","
       }
       if(Task.deadline) {
         dataToSave += Task.deadline + ",";
       } else {
-        dataToSave += "NoDeadline" + ",";
+        dataToSave += "No Deadline" + ",";
       }
       dataToSave += Task.title + ".";
     });
@@ -236,9 +236,8 @@ class App extends React.Component<IProps, IState> {
       return;
     }
     TaskListArray.pop();
-    console.log(TaskListArray);
     const TaskList: Task[] = [];
-    TaskListArray?.map((StringTask: string) => {   
+    TaskListArray.map((StringTask: string) => {   
       const TaskProperties: string[] = StringTask.split(",");
       if(TaskProperties[0].length > 2) {
         let priority: boolean = false;
@@ -264,11 +263,12 @@ class App extends React.Component<IProps, IState> {
             taskType = "Leisure";
             break;
         }
+
         const TaskToAdd: Task = {
           title: TaskProperties[7],
           description: TaskProperties[1],
-          date: new Date(TaskProperties[5]),
-          deadline: new Date(TaskProperties[6]),
+          date: TaskProperties[5],
+          deadline: TaskProperties[6],
           isHighPriority: priority,
           taskType: taskType,
           isCompleted: completed,
@@ -284,11 +284,9 @@ class App extends React.Component<IProps, IState> {
         taskList: TaskList
       })
     }
+    
   }
 
-  componentDidMount(): void {
-    //localStorage.clear();
-  }
 
   render() {
     return (
