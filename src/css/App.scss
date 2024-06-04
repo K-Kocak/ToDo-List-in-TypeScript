@@ -1,37 +1,27 @@
 #root {
   margin: 0 auto;
 }
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: #242424;
-  //font-synthesis: none;
-  //text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 body {
   margin: 0;
   padding: 0;
   max-height: 100vh;
 }
-
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
-  
-  
 }
-
 .Taskapp_container {
   background-color: #213547;
   display: flex;
   align-items: center;
-  
   height: 100vh;
   width: 100%;
   color: white;

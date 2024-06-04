@@ -34,7 +34,7 @@ class Filter extends React.Component<IProps, never>{
                 <button className="Date_filter" onClick={this.sortDivString} value="date">Date</button>
                 <button className="Date_filter" onClick={this.sortDivString} value="deadline">Deadline</button>
                 <button className="Priority_filter" onClick={this.sortDivString} value="isHighPriority">High Priority</button>
-                {taskTypeButtons}
+                    {taskTypeButtons}
                 <button className="Incomplete_filter" onClick={this.sortDivString} value="isCompleted">Incomplete</button>
             </div>
         )

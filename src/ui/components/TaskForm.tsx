@@ -5,8 +5,6 @@ import { Task, TaskType } from '@backend/task';
 
 import '@css/TaskForm.scss';
 
-
-
 interface IProps {
     // eslint-disable-next-line @typescript-eslint/ban-types
     addTask: Function;
@@ -14,14 +12,12 @@ interface IProps {
     convertTaskListToString: Function;
     // eslint-disable-next-line @typescript-eslint/ban-types
     convertLocalStorageToTaskArray: Function;
-
 }
 
 class TaskForm extends React.Component<IProps, never> {
     constructor(props: IProps) {
         super(props);
         
-
         this.submitTask = this.submitTask.bind(this);
         this.saveTask = this.saveTask.bind(this);
         this.loadTask = this.loadTask.bind(this);
@@ -37,6 +33,7 @@ class TaskForm extends React.Component<IProps, never> {
 
     submitTask(event: BaseSyntheticEvent) {
         event.preventDefault();
+
         const taskToAdd: Task = {
             title: event.target[0].value,
             description: event.target[5].value,
@@ -48,6 +45,7 @@ class TaskForm extends React.Component<IProps, never> {
             id: uuid(),
             isActive: false
         };
+
         this.props.addTask(taskToAdd);
     }
 
@@ -55,6 +53,7 @@ class TaskForm extends React.Component<IProps, never> {
 
         const TaskOptions: React.JSX.Element[] = [];
         const TaskTypes: TaskType[] = ["Leisure", "Study", "Work", "Exercise"] 
+
         TaskTypes.map((TaskType: TaskType, index: number) => {
             TaskOptions.push(<option key={index} value={TaskType}>{TaskType}</option>)
         });
@@ -87,15 +86,11 @@ class TaskForm extends React.Component<IProps, never> {
                             <textarea required id="task_details" name="task_details" placeholder='Details About The Task...' defaultValue="Development_Value"></textarea>
                         </div>
                         <div className="Taskform_container_submit_button">
-                            <button className="Taskform_container_submit_button_thing save_button" type="button" onClick={this.saveTask}>Save Task List</button>
-                            
+                            <button className="Taskform_container_submit_button_thing save_button" type="button" onClick={this.saveTask}>Save Task List</button>                         
                             <button className="Taskform_container_submit_button_thing" type="submit" value="submit">Add Task to List</button>
-
-                            <button className="Taskform_container_submit_button_thing load_button" type="button" onClick={this.loadTask}>Load Task List</button>
-                            
+                            <button className="Taskform_container_submit_button_thing load_button" type="button" onClick={this.loadTask}>Load Task List</button>                           
                         </div>
-                    </form>
-                    
+                    </form>                  
                 </div>
             </div>
         )

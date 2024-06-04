@@ -6,28 +6,21 @@
     height: 360px;
     font-weight: 600;
     border: 1px solid white;
-
     .Taskform_container {
-        font-size: 20px;
-        
-        
+        font-size: 20px;     
         .Taskform_container_title {
             text-align: center;
             font-size: 25px;
             margin: 0px;         
             padding: 0px;
-
             h3 {
                 margin: 15px;
                 font-size: 30px;
-            }
-            
+            }     
         }
-
         form {
             padding: 5px;
         }
-
         .Taskform_container_task_title {
             display: flex;          
             justify-content: left;
@@ -38,50 +31,40 @@
                 font-size: 19px;
                 width: 487px;
                 margin-left: 11px;
-            }
-            
+            }          
         }
-
         .Taskform_container_task_dates {
             display: flex;
             align-items: center;
             font-size: 26px;
             margin-top: 5px;
-
             #Start_of_task {
                 margin-right: 55px;
             }
-
             #Start_of_task,
             #Deadline_of_task {              
                 font-size: 19px;
                 height: 28px;
                 margin-left: 5px;
-            }
-            
+            }         
         }
-
         .Taskform_container_task_priority_and_task_type {
             display: flex;
             align-items: center;
             font-size: 26px;
             margin-top: 5px;
             justify-content: center;
-            margin-right: 35px;
-            
+            margin-right: 35px;         
             #Ishighpriority {
                 margin-right: 55px;
                 margin-left: 10px;
             }
-
             #Task_type {
                 font-size: 19px;
                 height: 30px;
                 margin-left: 5px;
-            }
-            
+            }         
         }
-
         .Taskform_container_task_description {
             font-size: 26px;
             margin: 3px;
@@ -92,15 +75,12 @@
                 padding: 9px;
                 resize: none;
                 margin-top: 2px;
-            }
-            
+            }         
         }
-
         .Taskform_container_submit_button {
             display: flex;
             justify-content: center;
-            width: 100%;
-            
+            width: 100%;       
             .Taskform_container_submit_button_thing {
                 width: 150px;
                 height: 25px;
@@ -108,18 +88,14 @@
                 background: linear-gradient(200deg, silver, black 20%);
                 border-color: silver;
                 color: white;
-                margin: 0px 20px;
-
-                
+                margin: 0px 20px;           
                 &:hover {
                     background: linear-gradient(200deg, silver, black 70%);
                 }
             }
-
             .Taskform_container_submit_button_thing.save_button {
                 border-color: #DAECA8;
             }
-
             .Taskform_container_submit_button_thing.load_button {
                 border-color: #7DE98D;
             }

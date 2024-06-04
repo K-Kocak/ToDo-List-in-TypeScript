@@ -6,7 +6,6 @@
     display: flex;
     justify-content: left;
     background-color: #093F46;
-
     #Taskdiv_container_active {
         width: 100%;
         margin: 6px;
@@ -15,16 +14,12 @@
         flex-direction: column;
         justify-content: center;
         background: linear-gradient(90deg, #D09016, #966810);
-
-
         .Taskdiv_title_and_buttons {
             padding: 5px 3px 3px 5px;
             margin-bottom: 3px;
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
-            
-
+            justify-content: space-between;           
             .Taskdiv_title {
                 
                 input {
@@ -33,7 +28,6 @@
                     width: 100%;
                 }
             }
-
             .Taskdiv_buttons {
                 display: flex;
                 align-items: center;
@@ -41,7 +35,6 @@
                 .Taskdiv_button.Delete {
                     background-color: #F9D8DC;
                 }
-
                 .Taskdiv_button.Edit {
                     background-color: #B0E1F5;
                 }
@@ -49,8 +42,6 @@
                 .Taskdiv_button.Complete {
                     background-color: #C5E48F;
                 }
-
-
                 .Taskdiv_button {
                     font-size: 20px;
                     margin-right: 3px;
@@ -58,10 +49,7 @@
                 }
             }
         }
-
-        .Taskdiv_description {
-            
-            
+        .Taskdiv_description {                
             padding: 5px;
             
             textarea {
@@ -70,24 +58,19 @@
                 font-size: 13px;
             }
         }
-
-        .Taskdiv_types_priority_dates {
-            
+        .Taskdiv_types_priority_dates {         
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
             margin: 0px 20px 0px 20px;
             font-size: 20px;
-
             select {
                 font-size: 20px;
             }
-
             input {
                 font-size: 15px;
-            }
-            
+            }          
             .Taskdiv_types_priority {
                 display: flex;
                 flex-direction: column;
@@ -95,7 +78,6 @@
                 padding: 0px;
                 
             }
-
             .Taskdiv_dates {
                 display: flex;
                 flex-direction: column;
@@ -105,7 +87,6 @@
             }
         }
     }
-    //----------------------------------------
     #Taskdiv_container_notactive {
         width: 100%;
         margin: 5px;
@@ -115,16 +96,12 @@
         justify-content: center;
         border: 1px solid black;
         background: linear-gradient(90deg, #4B80B6, #3A6490);
-        
-
         .Taskdiv_title_and_buttons {
             padding: 5px 3px 3px 5px;
             margin-bottom: 3px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            
-
             .Taskdiv_title {
                 
                 span {
@@ -132,54 +109,38 @@
                     padding-left: 3px;
                 }
             }
-
             .Taskdiv_buttons {
                 display: flex;
                 align-items: center;
-
                 .Taskdiv_button.Delete {
                     background-color: #F9D8DC;
                 }
-
                 .Taskdiv_button.Edit {
                     background-color: #E2F26D;
                 }
-
                 .Taskdiv_button.Complete {
                     background-color: #C5E48F;
                 }
-
-
                 .Taskdiv_button {
                     font-size: 20px;
                     margin-right: 3px;
-                    // button styling here
                 }
             }
         }
-
-        .Taskdiv_description {
-            
-            
-            padding: 5px;
-            
+        .Taskdiv_description {          
+            padding: 5px;            
             p {
                 padding: 0px 5px;
                 font-size: 18px;
-                word-break: break-word;
-                
-                
+                word-break: break-word;             
             }
         }
-
         .Taskdiv_types_priority_dates {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            margin: 5px 20px 0px 20px;
-            
-            
+            margin: 5px 20px 0px 20px;        
             .Taskdiv_types_priority {
                 display: flex;
                 flex-direction: column;
@@ -187,13 +148,11 @@
                 padding: 0px;
                 
             }
-
             .Taskdiv_dates {
                 display: flex;
                 flex-direction: column;
                 text-align: right;
-                margin: 7px;
-                
+                margin: 7px;             
             }
         }
     }

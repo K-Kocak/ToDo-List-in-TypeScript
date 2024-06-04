@@ -28,8 +28,7 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
         this.props.editTask(taskToEdit);
     }
 
-    deactivateDiv(event: BaseSyntheticEvent) {
-        
+    deactivateDiv(event: BaseSyntheticEvent) {       
         const taskToEdit: Task = {
             title: event.target[0].value,
             description: event.target[4].value,
@@ -41,6 +40,7 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
             id: this.props.task.id,
             isActive: false
         }
+
         this.props.editTask(taskToEdit)
     }
 
@@ -52,24 +52,20 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
         const taskToEdit = this.props.task;
         taskToEdit.isCompleted = !taskToEdit.isCompleted;
         this.props.editTask(taskToEdit);
-
     }
-
    
     render() {  
         
         const TaskOptions: React.JSX.Element[] = [];
         const TaskTypes: TaskType[] = ["Leisure", "Study", "Work", "Exercise"] 
+
         TaskTypes.map((TaskType: TaskType, index: number) => {
             TaskOptions.push(<option key={index} value={TaskType}>{TaskType}</option>)
         });
 
         const completion = this.props.task.isCompleted ? {background: "linear-gradient(90deg, #499762, #3C7B50)"} : {};
-
         const highPriority = (this.props.task.isCompleted === false && this.props.task.isHighPriority === true) ? {background: "linear-gradient(90deg, #A81F2C, #7F1721)"} : null;
-  
         const bgColorToDisplay = (highPriority !== null) ? highPriority : completion;
-
         const divToDisplay = this.props.task.isActive ?
 
         <div id="Taskdiv_container_active" style={bgColorToDisplay}>
@@ -82,23 +78,21 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
                         <button type="button" className="Taskdiv_button Complete" onClick={this.completeTask}><i className="fa fa-check"></i></button>
                         <button type="submit" className="Taskdiv_button Edit"><i className="fa fa-edit"></i></button>
                         <button className="Taskdiv_button Delete" onClick={this.deleteDiv}>
-                        <i className="fa fa-trash" aria-hidden="true"></i>
-                        </button>
-                        
-                        
+                            <i className="fa fa-trash" aria-hidden="true"></i>
+                        </button>                 
                     </div>
                 </div>
+
                 <div className="Taskdiv_description">
                     <textarea defaultValue={this.props.task.description}></textarea>
                 </div>
+
                 <div className="Taskdiv_types_priority_dates">
                     <div className="Taskdiv_types_priority">
                         <span>High Priority?
                             <input type="checkbox" defaultChecked={this.props.task.isHighPriority}></input>
-                        </span>
-                    
-                        <select name="Task_type" id="Task_type">{TaskOptions}</select>
-                        
+                        </span>            
+                        <select name="Task_type" id="Task_type">{TaskOptions}</select>                      
                     </div>
                     <div className="Taskdiv_dates">
                         <label htmlFor="Start_of_task">Date : <input type="date" id="Start_of_task" defaultValue={this.props.task.date?.toString()}></input></label>
@@ -117,8 +111,7 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
                 </div>
                 <div className="Taskdiv_buttons">
                     <button className="Taskdiv_button Complete" onClick={this.completeTask}><i className="fa fa-check"></i></button>
-                    <button className="Taskdiv_button Edit" onClick={this.activateDiv}><i className="fa fa-edit"></i></button>
-                    
+                    <button className="Taskdiv_button Edit" onClick={this.activateDiv}><i className="fa fa-edit"></i></button>          
                     <button className="Taskdiv_button Delete" onClick={this.deleteDiv}>
                         <i className="fa fa-trash" aria-hidden="true"></i>
                     </button>
@@ -129,7 +122,7 @@ class TaskDiv extends React.Component<IProps, {isActive: boolean}> {
             </div>
             <div className="Taskdiv_types_priority_dates">
                 <div className="Taskdiv_types_priority">
-                <span>Priority : {this.props.task.isHighPriority ? "High Priority!" : "Low Priority"}</span>
+                    <span>Priority : {this.props.task.isHighPriority ? "High Priority!" : "Low Priority"}</span>
                     <span>Task Type : {this.props.task.taskType}</span>
                 </div>
                 <div className="Taskdiv_dates">

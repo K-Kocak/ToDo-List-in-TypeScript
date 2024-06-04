@@ -22,7 +22,7 @@ class App extends React.Component<IProps, IState> {
     this.state = {
       taskList: [],
       previousFilter: ""
-    };
+    }
 
     this.addTask = this.addTask.bind(this);
     this.editTask = this.editTask.bind(this);
@@ -44,35 +44,47 @@ class App extends React.Component<IProps, IState> {
   }
 
   editTask(taskToEdit: Task) {
+
     const taskList = this.state.taskList;
     const newTaskList: Task[] = [];
+
     taskList.map((task: Task) => {
+
       if(task.id === taskToEdit.id) {
         newTaskList.push(taskToEdit);
       }
+
       else {
         newTaskList.push(task);
       }
-    })
+
+    });
+
     this.setState({
       taskList: [...newTaskList]
-    })
+    });
   }
   
   deleteTask(taskToDelete: Task) {
+
     const index = this.state.taskList.indexOf(taskToDelete);
     const temp: Task[] = [];
     const resetActive = this.state.taskList;
+    
     resetActive.map((Task: Task) => {
       if(Task.isActive) {
         Task.isActive = false;
         temp.push(Task);
-      } else {
+      } 
+      else {
         temp.push(Task);
-      }     
-    })
+      }
+
+    });
+
     if(index > -1) {
       temp.splice(index, 1);
+
       this.setState({
         taskList: [...temp]
       });
@@ -85,19 +97,23 @@ class App extends React.Component<IProps, IState> {
         this.sortByString();
         break;
       }
+
       case "date":
       case "deadline": {
         this.sortByDate(parameterToSort);
         break;
       }
+
       case "isHighPriority": {
         this.sortByBoolean(parameterToSort);
         break;
       }
+
       case "isCompleted": {
         this.sortByBoolean(parameterToSort);
         break;
       }
+
       case "Leisure":
       case "Work":
       case "Exercise":
@@ -105,6 +121,7 @@ class App extends React.Component<IProps, IState> {
         this.sortByTaskType(parameterToSort);
         break;
       }
+
       default:
         break;
     }
@@ -112,91 +129,125 @@ class App extends React.Component<IProps, IState> {
 
   sortByString() {
     const currentTaskList = this.state.taskList;
+
     currentTaskList.sort((a, b) => {
       return a.title.localeCompare(b.title);
     });
+
     this.setNewTaskList(currentTaskList, "title");
   }
 
   sortByDate(dateToSortBy: string) {
     const currentTaskList = this.state.taskList;
+
     if(dateToSortBy === "date") {
+
       currentTaskList.sort((a, b) => {
+
         if(a.date !== undefined && b.date !== undefined) {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         }
-        return 0;
-        
+
+        return 0;      
       });
+
       this.setNewTaskList(currentTaskList, dateToSortBy);
 
-    } else if (dateToSortBy === "deadline") {
+    } 
+    else if (dateToSortBy === "deadline") {
+
       currentTaskList.sort((a, b) => {
         if(a.deadline !== undefined && b.deadline !== undefined) {
           return new Date(a.deadline).getTime() - new Date(b.deadline).getTime();
         }
-        return 0;
-        
+
+        return 0;        
       });
+
       this.setNewTaskList(currentTaskList, dateToSortBy);
     }
   }
 
   sortByBoolean(booleanToSortBy: string) {
     const currentTaskList = this.state.taskList;
+
     if(booleanToSortBy === "isHighPriority") {
+
       currentTaskList.sort((a, b) => {
+
         if(a.isHighPriority && b.isHighPriority) {
           return 0;
-        } else if (!a.isHighPriority && !b.isHighPriority) {
+        } 
+
+        else if (!a.isHighPriority && !b.isHighPriority) {
           return 0;
-        } else {
+        } 
+
+        else {
           if(a.isHighPriority) {
             return -1;
           }
+
           else return 1;
         }
       });
+
       this.setNewTaskList(currentTaskList, booleanToSortBy);
     }
     else if(booleanToSortBy === "isCompleted") {
+
       currentTaskList.sort((a, b) => {
+
         if(a.isCompleted && b.isCompleted) {
           return 0;
-        } else if (!a.isCompleted && !b.isCompleted) {
+        } 
+
+        else if (!a.isCompleted && !b.isCompleted) {
           return 0;
-        } else {
+        } 
+
+        else {
           if(a.isCompleted) {
             return 1;
           }
+
           else return -1;
         }
       });
-      this.setNewTaskList(currentTaskList, booleanToSortBy);
-      
+
+      this.setNewTaskList(currentTaskList, booleanToSortBy);     
     }
   }
 
   sortByTaskType(taskTypeToSort: string) {
     const currentTaskList = this.state.taskList;
+
     currentTaskList.sort((a, b) => {
+
       if(a.taskType === taskTypeToSort && b.taskType !== taskTypeToSort) {
         return -1;
-      } else if(a.taskType !== taskTypeToSort && b.taskType === taskTypeToSort) {
+      } 
+
+      else if(a.taskType !== taskTypeToSort && b.taskType === taskTypeToSort) {
         return 1;
       }
+
       return 0;
     });
+
     this.setNewTaskList(currentTaskList, taskTypeToSort);
   }
 
   setNewTaskList(taskList: Task[], filterString: string) {
+
     if(this.state.previousFilter === filterString) {
       this.setState({
         taskList: [...taskList].reverse(),
         previousFilter: ""
       });
-    } else {
+    } 
+
+    else {
       this.setState({
         taskList: [...taskList],
         previousFilter: filterString
@@ -207,6 +258,7 @@ class App extends React.Component<IProps, IState> {
   convertTaskListToString() {
     const TaskList = this.state.taskList;
     let dataToSave: string = ""; 
+
     TaskList.map((Task: Task) => {
       dataToSave += 
       Task.id + "," + 
@@ -214,51 +266,70 @@ class App extends React.Component<IProps, IState> {
       Task.isCompleted.toString() + "," +
       Task.isHighPriority.toString() + "," +
       Task.taskType + ",";
+
       if(Task.date) {
         dataToSave += Task.date + ","
-      } else {
+      } 
+
+      else {
         dataToSave += "No Date" + ","
       }
+
       if(Task.deadline) {
         dataToSave += Task.deadline + ",";
-      } else {
+      } 
+
+      else {
         dataToSave += "No Deadline" + ",";
       }
+
       dataToSave += Task.title + ".";
     });
+
     localStorage.setItem("tasklist", dataToSave);
   }
 
   convertLocalStorageToTaskArray() {
     const storage = localStorage.getItem("tasklist");
     const TaskListArray = storage?.split(".")
+
     if(TaskListArray?.length === 1 || TaskListArray === undefined) {
       return;
     }
+
     TaskListArray.pop();
     const TaskList: Task[] = [];
+
     TaskListArray.map((StringTask: string) => {   
       const TaskProperties: string[] = StringTask.split(",");
+
       if(TaskProperties[0].length > 2) {
         let priority: boolean = false;
-        let completed: boolean = false;    
+        let completed: boolean = false;  
+
         if(TaskProperties[3] === "true") {
           priority = true;
         }
+
         if(TaskProperties[2] === "true") {
           completed = true;
         }
+
         let taskType: TaskType = "Leisure";
+
         switch(TaskProperties[4]) {
           case "Exercise":
             taskType = "Exercise";
             break;
+
           case "Work":
             taskType = "Work";
             break;
+
           case "Study":
             taskType = "Study";
             break;
+
           default:
             taskType = "Leisure";
             break;
@@ -275,6 +346,7 @@ class App extends React.Component<IProps, IState> {
           id: TaskProperties[0],
           isActive: false
         }
+
         TaskList.push(TaskToAdd);
       } 
     });
@@ -282,11 +354,9 @@ class App extends React.Component<IProps, IState> {
     if(TaskList.length > 1) {
       this.setState({
         taskList: TaskList
-      })
-    }
-    
+      });
+    }   
   }
-
 
   render() {
     return (
